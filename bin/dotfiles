@@ -1,8 +1,8 @@
 #!/bin/bash
 
 DOTFILES_DIRECTORY="${HOME}/.dotfiles"
-DOTFILES_TARBALL_PATH="https://github.com/necolas/dotfiles/tarball/master"
-DOTFILES_GIT_REMOTE="git@github.com:necolas/dotfiles.git"
+DOTFILES_TARBALL_PATH="https://github.com/lgaechter/dotfiles/tarball/master"
+DOTFILES_GIT_REMOTE="git@github.com:lgaechter/dotfiles.git"
 
 # If missing, download and extract the dotfiles repository
 if [[ ! -d ${DOTFILES_DIRECTORY} ]]; then
@@ -18,23 +18,9 @@ fi
 
 cd ${DOTFILES_DIRECTORY}
 
-source ./lib/help
-source ./lib/list
 source ./lib/utils
 source ./lib/brew
 source ./lib/npm
-
-# Help text
-if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-    run_help
-    exit
-fi
-
-# List additional software to install
-if [[ "$1" == "-l" || "$1" == "--list" ]]; then
-    run_list
-    exit
-fi
 
 # Test for known flags
 for opt in $@
@@ -57,7 +43,7 @@ fi
 # Check for Homebrew
 if ! type_exists 'brew'; then
     e_header "Installing Homebrew..."
-    ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+    ruby -e "$(curl -fsSkL raw.github.com/Homebrew/homebrew/go)"
 fi
 
 # Check for git
@@ -100,7 +86,7 @@ else
     # Install Homebrew formulae
     run_brew
     # Install Node packages
-    run_npm
+    # run_npm
 fi
 
 link() {
@@ -124,12 +110,11 @@ mirrorfiles() {
     # `.dotfiles` repository.
     link "shell/bashrc"       ".bashrc"
     link "shell/bash_profile" ".bash_profile"
-    link "shell/curlrc"       ".curlrc"
     link "shell/inputrc"      ".inputrc"
     link "git/gitattributes"  ".gitattributes"
     link "git/gitignore"      ".gitignore"
     link "vim"                ".vim"
-    link "vim/gvimrc"         ".gvimrc"
+    #link "vim/gvimrc"         ".gvimrc"
     link "vim/vimrc"          ".vimrc"
 
     e_success "Dotfiles update complete!"
@@ -147,11 +132,11 @@ else
 fi
 
 # Ask before potentially overwriting OS X defaults
-seek_confirmation "Warning: This step may modify your OS X system defaults."
+# seek_confirmation "Warning: This step may modify your OS X system defaults."
 
-if is_confirmed; then
-    bash ./bin/osxdefaults
-    e_success "OS X settings updated! You may need to restart."
-else
-    printf "Skipped OS X settings update.\n"
-fi
+# if is_confirmed; then
+#     bash ./bin/osxdefaults
+#     e_success "OS X settings updated! You may need to restart."
+# else
+#     printf "Skipped OS X settings update.\n"
+# fi

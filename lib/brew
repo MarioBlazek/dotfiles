@@ -20,18 +20,18 @@ run_brew() {
         local -a desired_formulae=(
             'coreutils' # GNU core utilities (those that come with OS X are outdated)
             'git'
-            'ack'
+            #'ack'
             'bash'
-            'bash-completion'
-            'ffmpeg'
-            'graphicsmagick'
-            'jpeg'
-            'macvim --override-system-vim'
+            #'bash-completion'
+            #'ffmpeg'
+            #'graphicsmagick'
+            #'jpeg'
+            #'macvim --override-system-vim'
             'node'
-            'optipng'
-            'phantomjs'
-            'tree'
-            'wget'
+            #'optipng'
+            #'phantomjs'
+            #'tree'
+            #'wget'
         )
 
         for index in ${!desired_formulae[*]}
