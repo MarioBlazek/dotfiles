@@ -16,8 +16,7 @@ declare -a dirs_to_append=(
     "/Library/Ruby/Gems/2.0.0"
     "$HOME/.rvm/bin"
     "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
-    "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
-    "$(brew --prefix nvm)/nvm.sh"
+    "$HOME/.nvm/"
 )
 
 # Prepend directories to PATH
