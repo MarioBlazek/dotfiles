@@ -1,0 +1,38 @@
+#!/bin/bash
+
+###############################################################################
+# Homebrew Cask                                                               #
+###############################################################################
+
+run_cask() {
+
+    # Homebrew Cask
+    brew install caskroom/cask/brew-cask
+
+    brew tap caskroom/versions
+
+    # Apps
+    apps=(
+
+        # Utilities
+        iterm2
+
+        # Prefpanes / Quicklook plugins
+        qlcolorcode # Preview source code files with syntax highlighting
+        qlstephen # Preview plain text files without a file extension. Example: README, CHANGELOG, etc.
+        qlmarkdown # Preview Markdown files
+        quicklook-json # Preview JSON files
+        quicklook-csv # Preview CSV files
+        betterzipql # Preview archives
+        qlimagesize # Display image size and resolution
+        webpquicklook # Preview WebP images
+    )
+
+    # Install apps to /Applications
+    # Default is: /Users/$user/Applications
+    echo "installing apps..."
+    brew cask install --appdir="/Applications" ${apps[@]}
+
+    # Install the Solarized Dark theme for iTerm
+    open "./files/SolarizedDark.itermcolors"
+}
