@@ -7,7 +7,6 @@ alias sudo="sudo "
 
 # Shortcuts
 alias g="git"
-alias v="vim"
 
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
@@ -19,18 +18,24 @@ alias -- -="cd -"
 
 # be nice
 alias please=sudo
-alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
+alias hosts='sudo $EDITOR /etc/hosts'
 
 # List dir contents aliases
 # ref: http://ss64.com/osx/ls.html
+
 # Long form no user group, color
 alias l="ls -oG"
+
 # Order by last modified, long form no user group, color
-alias lt="ls -toG"
+# This alias might interfere with localtunnel, so use with caution
+#alias lt="ls -toG"
+
 # List all except . and ..., color, mark file types, long form no user group, file size
 alias la="ls -AGFoh"
-# List all except . and ..., color, mark file types, long form no use group, order by last modified, file size
+
+# List all except . and ..., color, mark file types, long form no user group, order by last modified, file size
 alias lat="ls -AGFoth"
+
 # List only directories
 alias lsd='ls -l | grep "^d"'
 
