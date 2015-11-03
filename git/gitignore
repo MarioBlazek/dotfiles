@@ -1,3 +1,5 @@
 node_modules/
-dist/
 .sass-cache/
+*.sublime-*
+!*.sublime-snippet
+!*.sublime-settings
