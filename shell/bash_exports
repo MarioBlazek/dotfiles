@@ -2,9 +2,6 @@
 
 # bash_config
 
-# Make vim the default editor
-export EDITOR="vim"
-
 # Ignore duplicate commands in the history
 export HISTCONTROL=ignoredups
 
