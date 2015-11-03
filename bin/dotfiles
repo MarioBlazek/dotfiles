@@ -109,12 +109,24 @@ mirrorfiles() {
     e_success "Dotfiles update complete!"
 }
 
+init_nvm() {
+    mkdir -p ${HOME}/.nvm
+
+    nvm install node
+    nvm alias default node
+
+    # install some packages
+    npm install --global gulp dploy localtunnel npm-check
+}
+
 # Ask before potentially overwriting files
 seek_confirmation "Warning: This step may overwrite your existing dotfiles."
 
 if is_confirmed; then
     mirrorfiles
     source ${HOME}/.bash_profile
+
+    init_nvm
 else
     printf "Aborting...\n"
     exit 1

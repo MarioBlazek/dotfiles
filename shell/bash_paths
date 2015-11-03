@@ -10,13 +10,11 @@ declare -a dirs_to_prepend=(
 # Directories to be appended to PATH
 declare -a dirs_to_append=(
     "/usr/bin"
-    "/usr/local/bin"
     "$HOME/bin"
     "$HOME/.dotfiles/bin"
     "/Library/Ruby/Gems/2.0.0"
     "$HOME/.rvm/bin"
     "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
-    "$HOME/.nvm/"
 )
 
 # Prepend directories to PATH
@@ -40,3 +38,4 @@ done
 unset dirs_to_prepend dirs_to_append
 
 export PATH
+export NVM_DIR="${HOME}/.nvm"
