@@ -67,17 +67,6 @@ if ! is_git_repo; then
     git clean -fd
 fi
 
-# Conditionally sync with the remote repository
-if [[ $no_sync ]]; then
-    printf "Skipped dotfiles sync.\n"
-else
-    e_header "Syncing dotfiles..."
-    # Pull down the latest changes
-    git pull --rebase origin master
-    # Update submodules
-    git submodule update --recursive --init --quiet
-fi
-
 # Install and update packages
 if [[ $no_packages ]]; then
     printf "Skipped package installations.\n"
