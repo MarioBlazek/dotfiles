@@ -16,6 +16,7 @@ run_cask() {
 
         # Utilities
         iterm2
+        diffmerge
 
         # Prefpanes / Quicklook plugins
         qlcolorcode # Preview source code files with syntax highlighting
